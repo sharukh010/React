@@ -21,7 +21,26 @@ const BooksCollection = [
         name:"James Clear",
         url:"https://images-eu.ssl-images-amazon.com/images/I/81IL8Dy4vmL._AC_UL600_SR600,400_.jpg",
         id:3
+    },
+    {
+        title:"The Power of Your Subconscious Mind: Original Edition | Premium Paperback",
+        name:"Joseph Murphy",
+        url:"https://images-eu.ssl-images-amazon.com/images/I/71sBtM3Yi5L._AC_UL600_SR600,400_.jpg",
+        id:4
+    },
+    {
+        title:"The Psychology Of Money",
+        name:"Morgan Housel",
+        url:"https://images-eu.ssl-images-amazon.com/images/I/61-hMfd7NGL._AC_UL600_SR600,400_.jpg",
+        id:5
+    },
+    {
+        title:"Ikigai",
+        name:"Francesc Miralles",
+        url:"https://images-eu.ssl-images-amazon.com/images/I/814L+vq01mL._AC_UL600_SR600,400_.jpg",
+        id:6
     }
+
 ]
 
 function SearchBar() {
