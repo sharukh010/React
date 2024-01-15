@@ -60,6 +60,9 @@ function SearchBar() {
             const book = BooksCollection.find((book)=>book.title.toLowerCase().includes(name.toLowerCase()));
             console.log(book);
         }
+        else{
+            console.log("empty search performed")
+        }
     }
   return (
     <div className="search-container">
@@ -83,49 +86,25 @@ function SearchBar() {
   );
 }
 function BookList() {
+    const myBooks = BooksCollection.map((book)=>{
+        return (
+            <Book title = {book.title} name = {book.name} url = {book.url} key = {book.id}/>
+        )
+    })
     return (
         <>
     <SearchBar/>
     <section className="container">
-      <Book
-        title="Spiritual Anatomy: Meditation, Chakras, and the Journey to the Center"
-        name="Daaji Kamlesh D. Patel"
-        url="https://images-eu.ssl-images-amazon.com/images/I/61PJx0YuQpL._AC_UL600_SR600,400_.jpg"
-        />
-      <Book
-        title="Why Bharat Matters"
-        name="S. Jaishankar"
-        url="https://images-eu.ssl-images-amazon.com/images/I/71Hqj4xb0XL._AC_UL600_SR600,400_.jpg"
-        />
-      <Book
-        title="Atomic Habits"
-        name="James Clear"
-        url="https://images-eu.ssl-images-amazon.com/images/I/81IL8Dy4vmL._AC_UL600_SR600,400_.jpg"
-        />
-      <Book
-        title="The Power of Your Subconscious Mind: Original Edition | Premium Paperback"
-        name="Joseph Murphy"
-        url="https://images-eu.ssl-images-amazon.com/images/I/71sBtM3Yi5L._AC_UL600_SR600,400_.jpg"
-        />
-      <Book
-        title="The Psychology Of Money"
-        name="Morgan Housel"
-        url="https://images-eu.ssl-images-amazon.com/images/I/61-hMfd7NGL._AC_UL600_SR600,400_.jpg"
-        />
-      <Book
-        title="Ikigai"
-        name="Francesc Miralles"
-        url="https://images-eu.ssl-images-amazon.com/images/I/814L+vq01mL._AC_UL600_SR600,400_.jpg"
-        />
+      {myBooks}
     </section>
     </>
   );
 }
 
 function Book(details) {
-  const { title, name, url } = details;
+  const { title, name, url, id} = details;
   return (
-    <article className="book">
+    <article className="book" id = {id}>
       <Image url={url} title={title} />
       <div className="description">
         <Title title={title} />
