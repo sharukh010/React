@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import {useState} from "react";
 import "./index.css";
 
 const BooksCollection = [
@@ -44,7 +45,7 @@ const BooksCollection = [
 ]
 
 function SearchBar() {
-
+    const [isInputFocused,setIsInputFocused] = useState(false);
     let search = "";
     const handleSubmission = (e)=>{
         e.preventDefault();
@@ -65,9 +66,17 @@ function SearchBar() {
         }
     }
   return (
-    <div className="search-container">
+    <div className="search-container" 
+        style = {{
+            border: isInputFocused? "3px solid #f3bd78":"none",
+            borderRadius:"8px",
+        }}
+    >
       <form onSubmit={handleSubmission}>
-        <input type="text" placeholder="Search Amazon.in" className = "search-box" onChange = {SearchText} />
+        <input type="text" placeholder="Search Amazon.in" className = "search-box" onChange = {SearchText}
+        onFocus = {()=>setIsInputFocused(true)}
+        onBlur = {()=>setIsInputFocused(false)}
+        />
         <button type="submit"  className = "search-button" onClick ={()=>console.log("button clicked")} >
         <svg
             xmlns="http://www.w3.org/2000/svg"
